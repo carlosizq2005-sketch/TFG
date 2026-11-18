@@ -1,0 +1,21 @@
+
+# LaTeX (archivos auxiliares de compilación)
+tesis/*.aux
+tesis/*.log
+tesis/*.out
+tesis/*.toc
+tesis/*.lof
+tesis/*.lot
+tesis/*.bbl
+tesis/*.bcf
+tesis/*.blg
+tesis/*.run.xml
+tesis/*.fls
+tesis/*.fdb_latexmk
+tesis/*.synctex.gz
+tesis/*.xdv
+tesis/*.locode
+tesis/*-SAVE-ERROR
+
+# Carpeta de archivos auxiliares de LaTeX
+.latex-build/

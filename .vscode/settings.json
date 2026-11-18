@@ -1,0 +1,37 @@
+{
+  // Compilar automáticamente main.tex cada vez que se guarda cualquier .tex/.bib
+  "latex-workshop.latex.autoBuild.run": "onSave",
+  "latex-workshop.latex.rootFile.doNotPrompt": true,
+
+  // Los archivos auxiliares (.aux, .log, .toc, .bbl...) se escriben en la carpeta
+  // oculta .latex-build/ de la raíz: en tesis/ solo quedan main.tex y main.pdf
+  "latex-workshop.latex.tools": [
+    {
+      "name": "latexmk-limpio",
+      "command": "latexmk",
+      "args": [
+        "-pdf",
+        "-synctex=0",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "-auxdir=%WORKSPACE_FOLDER%/.latex-build",
+        "-outdir=%DIR%",
+        "%DOC%"
+      ]
+    }
+  ],
+  "latex-workshop.latex.recipes": [
+    { "name": "latexmk (auxiliares fuera de tesis/)", "tools": ["latexmk-limpio"] }
+  ],
+  "latex-workshop.latex.recipe.default": "first",
+  "latex-workshop.latex.outDir": "%DIR%",
+  "latex-workshop.latex.autoClean.run": "never",
+
+  // Abrir main.pdf en una pestaña de VS Code (se recarga sola tras cada compilación)
+  "latex-workshop.view.pdf.viewer": "tab",
+
+  // Ocultar la carpeta de auxiliares en el explorador de VS Code
+  "files.exclude": {
+    ".latex-build": true
+  }
+}
